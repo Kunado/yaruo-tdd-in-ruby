@@ -6,6 +6,10 @@ class Triangle
     @a == @b && @a == @c && @b == @c
   end
 
+  def isosceles_triangle?
+    true
+  end
+
   private
     def positive_values?
       [@a, @b, @c].all?{ |side| side.is_a?(Numeric) && side > 0 }

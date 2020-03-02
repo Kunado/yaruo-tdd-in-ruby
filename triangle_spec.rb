@@ -9,6 +9,14 @@ describe Triangle do
     it { expect(triangle).to be_equilateral_triangle }
   end
 
+  context 'with two equally long sides' do
+    triangle = Triangle.new
+    triangle.a = 2
+    triangle.b = 2
+    triangle.c = 1
+    it { expect(triangle).to be_isosceles_triangle }
+  end
+
   context 'with unequally long three sides' do
     triangle = Triangle.new
     triangle.a = 3
