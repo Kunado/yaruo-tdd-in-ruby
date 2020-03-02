@@ -11,6 +11,11 @@ class Triangle
     sides.combination(2).any?{ |side_combi| side_combi[0] == side_combi[1] }
   end
 
+  def scalene_triangle?
+    return false unless triangle?
+    sides.combination(2).all?{ |side_combi| side_combi[0] != side_combi[1] }
+  end
+
   def sides=(array)
     (@a, @b, @c) = array
   end
