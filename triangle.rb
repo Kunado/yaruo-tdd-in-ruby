@@ -3,17 +3,17 @@ class Triangle
 
   def equilateral_triangle?
     return false unless triangle?
-    sides.combination(2).all?{ |side_combi| side_combi[0] == side_combi[1] }
+   side_pairs.all?{ |pair| pair[0] == pair[1] }
   end
 
   def isosceles_triangle?
     return false unless triangle?
-    sides.combination(2).any?{ |side_combi| side_combi[0] == side_combi[1] }
+    side_pairs.any?{ |pair| pair[0] == pair[1] }
   end
 
   def scalene_triangle?
     return false unless triangle?
-    sides.combination(2).all?{ |side_combi| side_combi[0] != side_combi[1] }
+    side_pairs.all?{ |pair| pair[0] != pair[1] }
   end
 
   def sides=(array)
@@ -22,6 +22,10 @@ class Triangle
 
   def sides
     [@a, @b, @c]
+  end
+
+  def side_pairs
+    sides.combination(2)
   end
 
   def other_sides_than(side)
