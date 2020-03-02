@@ -3,17 +3,17 @@ class Triangle
 
   def equilateral_triangle?
     return false unless triangle?
-   side_pairs.all?{ |pair| pair[0] == pair[1] }
+    side_pairs.all?{ |pair| pair.inject(&:==) }
   end
 
   def isosceles_triangle?
     return false unless triangle?
-    side_pairs.any?{ |pair| pair[0] == pair[1] }
+    side_pairs.any?{ |pair| pair.inject(&:==) }
   end
 
   def scalene_triangle?
     return false unless triangle?
-    side_pairs.all?{ |pair| pair[0] != pair[1] }
+    side_pairs.all?{ |pair| pair.inject(&:!=) }
   end
 
   def sides=(array)
