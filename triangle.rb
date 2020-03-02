@@ -7,7 +7,8 @@ class Triangle
   end
 
   def isosceles_triangle?
-    true
+    return false unless positive_values?
+    @a == @b || @a == @c || @b == @c
   end
 
   private

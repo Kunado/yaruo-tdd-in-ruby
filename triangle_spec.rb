@@ -7,6 +7,7 @@ describe Triangle do
     triangle.b = 1
     triangle.c = 1
     it { expect(triangle).to be_equilateral_triangle }
+    it { expect(triangle).to be_isosceles_triangle }
   end
 
   context 'with two equally long sides' do
@@ -23,6 +24,7 @@ describe Triangle do
     triangle.b = 4
     triangle.c = 5
     it { expect(triangle).to_not be_equilateral_triangle }
+    it { expect(triangle).to_not be_isosceles_triangle }
   end
 
   context 'has nil for one of side lengths' do
