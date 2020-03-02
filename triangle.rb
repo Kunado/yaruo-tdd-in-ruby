@@ -3,17 +3,21 @@ class Triangle
 
   def equilateral_triangle?
     return false unless triangle?
-    @a == @b && @a == @c && @b == @c
+    sides.combination(2).all?{ |side_combi| side_combi[0] == side_combi[1] }
   end
 
   def isosceles_triangle?
     return false unless triangle?
-    @a == @b || @a == @c || @b == @c
+    sides.combination(2).any?{ |side_combi| side_combi[0] == side_combi[1] }
+  end
+
+  def sides
+    [@a, @b, @c]
   end
 
   private
     def positive_values?
-      [@a, @b, @c].all?{ |side| side.is_a?(Numeric) && side > 0 }
+      sides.all?{ |side| side.is_a?(Numeric) && side > 0 }
     end
 
     def triangle?
