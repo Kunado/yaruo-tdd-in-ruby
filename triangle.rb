@@ -2,18 +2,15 @@ class Triangle
   attr_accessor :a, :b, :c
 
   def equilateral_triangle?
-    return false unless triangle?
-    side_pairs.all?{ |pair| pair.inject(&:==) }
+    triangle? && side_pairs.all?{ |pair| pair.inject(&:==) }
   end
 
   def isosceles_triangle?
-    return false unless triangle?
-    side_pairs.any?{ |pair| pair.inject(&:==) }
+    triangle? && side_pairs.any?{ |pair| pair.inject(&:==) }
   end
 
   def scalene_triangle?
-    return false unless triangle?
-    side_pairs.all?{ |pair| pair.inject(&:!=) }
+    triangle? && side_pairs.all?{ |pair| pair.inject(&:!=) }
   end
 
   def sides=(array)
@@ -40,7 +37,6 @@ class Triangle
     end
 
     def triangle?
-      return false unless positive_values?
-      sides.all?{ |side| other_sides_than(side).inject(&:+) > side }
+      positive_values? && sides.all?{ |side| other_sides_than(side).inject(&:+) > side }
     end
 end
