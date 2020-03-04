@@ -1,4 +1,4 @@
-require_relative 'csv_parser'
+require_relative '../lib/csv_parser'
 
 describe CSVParser do
   context "when given text has neither '\"' nor ',' as a part of one of its values" do

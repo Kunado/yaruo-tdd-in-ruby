@@ -1,4 +1,4 @@
-require_relative 'triangle'
+require_relative '../lib/triangle'
 
 describe Triangle do
   context 'with three equally long sides' do
