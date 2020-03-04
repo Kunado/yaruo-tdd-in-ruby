@@ -5,14 +5,13 @@ class CSVParser
     if c == '"'
       parse_double_quote text, array
     else
-      array.push c if c != ',' && c != ' '
+      array.push c unless c == ',' || c == ' '
       parse text, array
     end
     array
   end
 
   def self.parse_double_quote(text, array = [], string = '')
-    return if text.length == 0
     c = text.slice!(0)
     if c == '"'
       parse_double_quote_in_double_quote text, array, string
