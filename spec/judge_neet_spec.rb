@@ -15,7 +15,7 @@ describe 'the cabinet office can judge a NEET' do
 
   context 'with person older than 34 years' do
     neet_condition = NeetCondition.new(
-      age: 23,
+      age: 35,
       has_income: false,
       commuting: false,
       married: false,
